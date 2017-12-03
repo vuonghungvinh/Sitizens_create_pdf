@@ -1,0 +1,231 @@
+{
+  "events": [
+    {
+      "id": "4504715647778816",
+      "place": {
+        "externalIds": {
+          "AGENDA_BRUSSELS": [
+          "266382"
+          ]
+        },
+        "id": "5861367504437248",
+        "location": {
+          "lat": 50.82992494,
+          "lng": 4.34919001
+        },
+        "name_fr": "C.R.E.A",
+        "name_nl": "C.R.E.A",
+        "description_fr": "",
+        "description_nl": ""
+      },
+      "organizer": {
+        "externalIds": {
+          "AGENDA_BRUSSELS": [
+          "266382"
+          ]
+        },
+        "id": "5861367504437248",
+        "location": {
+          "lat": 50.82992494,
+          "lng": 4.34919001
+        },
+        "name_fr": "C.R.E.A",
+        "name_nl": "C.R.E.A",
+        "description_fr": "",
+        "description_nl": ""
+      },
+      "prices": [
+        {
+          "value": 140.0,
+          "fr": "Normal",
+          "nl": "Normaal"
+        }
+      ],
+      "media": [
+        {
+          "uuid": "b0483011-6713-4a54-bc00-9201954ff8ae",
+          "type": "SRC",
+          "link": "https://media03.cdn.agenda.be/038a25dd40bb2e3c4df40f6b48f42b73163064f1.jpg",
+          "active": true,
+          "main": false
+        }
+      ],
+      "nl": {
+        "name": "Ateliers de théâtre pour enfants (6-8 ans)",
+        "website": "https://agenda.brussels/nl/detail/id/425912.html"
+      },
+      "fr": {
+        "name": "Ateliers de théâtre pour enfants (6-8 ans)",
+        "performers": "Carole Ventura",
+        "website": "http://www.creabxl.org",
+        "emails": [
+          "contact@creabxl.org"
+        ],
+        "phones": [
+          {
+          "number": "0499501228",
+          "type": "CONTACT"
+          },
+          {
+          "number": "0465290547",
+          "type": "BOOKING"
+          }
+        ],
+        "short_description": "Ateliers ludiques et collectifs sans compétition, sans exigence de résultats orientés vers un but pédagogique précis, basés sur le plaisir du jeu et l’engagement des enfants dans une histoire.",
+        "long_description": "Il s’agit d’ateliers ludiques et collectifs sans compétition, sans exigence de résultats orientés vers un but pédagogique précis, basés sur le plaisir du jeu et l’engagement des enfants dans une histoire.  \r\nL’actrice-pédagogue définit une situation imaginaire et choisit les rôles des enfants ainsi que les étapes du parcours. Au sein d’une structure bien définie, elle interagit avec les enfants en leur créant un espace de protection garantie par la fiction.\r\nLa protection offerte par le rôle dans une histoire fictive offre aux enfants la liberté de prendre des décisions, de faire des choix et d’affirmer leur point de vue en toute confiance.\r\nL'atelier vise donc à développer le potentiel de l’enfant (ZPR, Zone of Proximal Development - Bruner) au travers d’activités variées, sans restitution et sans pression.\r\n \r\nChaque histoire peut avoir une durée variable et explore une thématique et des objectifs pédagogiques particuliers liés à l'age des enfants et à la société d’aujourd’hui.\r\nAinsi les enfants interrogent dans la fiction des thématiques comme la séparation, les inégalités, la tolérance, l’éco-diversité, la citoyenneté, etc"
+      },
+      "week_schema": {
+        "wednesday": [
+          {
+          "start": "13:30",
+          "end": "15:30"
+          }
+        ]
+      },
+      "external_ids": {
+        "AGENDA_BRUSSELS": [
+          "425912"
+        ]
+      },
+      "date_start": "2017-09-27T00:00:00.000Z",
+      "date_end": "2017-12-20T00:00:00.000Z"
+    },
+    {
+      "id": "4505709328728064",
+      "place": {
+        "externalIds": {
+          "FACEBOOK": [
+            "151179331641307"
+          ]
+        },
+        "id": "6397142864232448",
+        "location": {
+          "lat": 50.83344,
+          "lng": 4.33882
+        },
+        "name_fr": "FGTB Bruxelles - ABVV Brussel",
+        "name_nl": "FGTB Bruxelles - ABVV Brussel",
+        "description_fr": "Page politique de la FGTB de Bruxelles.\n\nPour des questions sur le chômage, visitez notre site : http://fgtb-chomage-bxl.be/ Page politique de la FGTB de Bruxelles.\n\nPour des questions sur le chômage, visitez notre site : http://fgtb-chomage-bxl.be/ Page politique de la FGTB de Bruxelles.\n\nPour des questions sur le chômage, visitez notre site : http://fgtb-chomage-bxl.be/ Page politique de la FGTB de Bruxelles.\n\nPour des questions sur le chômage, visitez notre site : http://fgtb-chomage-bxl.be/ Page politique de la FGTB de Bruxelles.\n\nPour des questions sur le chômage, visitez notre site : http://fgtb-chomage-bxl.be/ Page politique de la FGTB de Bruxelles.\n\nPour des questions sur le chômage, visitez notre site : http://fgtb-chomage-bxl.be/ Page politique de la FGTB de Bruxelles.\n\nPour des questions sur le chômage, visitez notre site : http://fgtb-chomage-bxl.be/",
+        "description_nl": "Page politique de la FGTB de Bruxelles.\n\nPour des questions sur le chômage, visitez notre site : http://fgtb-chomage-bxl.be/ Page politique de la FGTB de Bruxelles.\n\nPour des questions sur le chômage, visitez notre site : http://fgtb-chomage-bxl.be/ Page politique de la FGTB de Bruxelles.\n\nPour des questions sur le chômage, visitez notre site : http://fgtb-chomage-bxl.be/ Page politique de la FGTB de Bruxelles.\n\nPour des questions sur le chômage, visitez notre site : http://fgtb-chomage-bxl.be/ Page politique de la FGTB de Bruxelles.\n\nPour des questions sur le chômage, visitez notre site : http://fgtb-chomage-bxl.be/ Page politique de la FGTB de Bruxelles.\n\nPour des questions sur le chômage, visitez notre site : http://fgtb-chomage-bxl.be/ Page politique de la FGTB de Bruxelles.\n\nPour des questions sur le chômage, visitez notre site : http://fgtb-chomage-bxl.be/"
+      },
+      "organizer": {
+        "externalIds": {
+          "FACEBOOK": [
+          "169954549870201"
+          ]
+        },
+        "id": "5827283516391424",
+        "location": {
+          "lat": 50.84804,
+          "lng": 4.34537
+        },
+        "name_fr": "CSC Bruxelles Hal Vilvorde - Priorité aux travailleurs",
+        "name_nl": "CSC Bruxelles Hal Vilvorde - Priorité aux travailleurs",
+        "description_fr": "Information et formation syndicale via la page de la CSC BHV. #mobilisation #csc #jeunes #femmes #chomage\nPage NL: https://www.facebook.com/acv.bhv\n",
+        "description_nl": "Information et formation syndicale via la page de la CSC BHV. #mobilisation #csc #jeunes #femmes #chomage\nPage NL: https://www.facebook.com/acv.bhv\n"
+      },
+      "media": [
+        {
+          "uuid": "6517cbbb-2f02-4e8f-b190-86fe73fc61fb",
+          "type": "SRC",
+          "link": "http://lh3.googleusercontent.com/etv-hQ0nldSU0T7XP3cwoQbVYCLipSjNW15BRp2PFexCuSZZiNAdfhtUFuVAHN2qEgOHYyCCrOc4dRfSFc7NHRy0q_UU",
+          "active": true,
+          "main": false
+        }
+      ],
+      "nl": {
+        "name": "Marche pour nos pensions - Mars voor onze pensioenen",
+        "website": "https://www.facebook.com/events/147205975920945",
+        "short_description": "Marche pour nos pensions!\n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 10h30. Rassemblement boulevard roi Albert II n°5, 1210 Bruxelles\n--------------------------\nMars voor onze pensioenen.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 10u30. Verzamelplaats: Koning Albert II laan n°5, 1210 Brussel. Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions!\n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 10h30. Rassemblement boulevard roi Albert II n°5, 1210 Bruxelles\n--------------------------\nMars voor onze pensioenen.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 10u30. Verzamelplaats: Koning Albert II laan n°5, 1210 Brussel.",
+        "long_description": "Marche pour nos pensions!\n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 10h30. Rassemblement boulevard roi Albert II n°5, 1210 Bruxelles\n--------------------------\nMars voor onze pensioenen.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 10u30. Verzamelplaats: Koning Albert II laan n°5, 1210 Brussel. Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions!\n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 10h30. Rassemblement boulevard roi Albert II n°5, 1210 Bruxelles\n--------------------------\nMars voor onze pensioenen.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 10u30. Verzamelplaats: Koning Albert II laan n°5, 1210 Brussel."
+      },
+      "fr": {
+        "name": "Marche pour nos pensions - Mars voor onze pensioenen",
+        "website": "https://www.facebook.com/events/147205975920945",
+        "short_description": "Marche pour nos pensions!\n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 10h30. Rassemblement boulevard roi Albert II n°5, 1210 Bruxelles\n--------------------------\nMars voor onze pensioenen.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 10u30. Verzamelplaats: Koning Albert II laan n°5, 1210 Brussel. Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions!\n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 10h30. Rassemblement boulevard roi Albert II n°5, 1210 Bruxelles\n--------------------------\nMars voor onze pensioenen.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 10u30. Verzamelplaats: Koning Albert II laan n°5, 1210 Brussel.",
+        "long_description": "Marche pour nos pensions!\n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 10h30. Rassemblement boulevard roi Albert II n°5, 1210 Bruxelles\n--------------------------\nMars voor onze pensioenen.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 10u30. Verzamelplaats: Koning Albert II laan n°5, 1210 Brussel. Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions en front commun syndical CSC Bruxelles-FGTB Bruxelles et leurs associations. \n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 13h30 à la Tour des pensions (Gare du Midi)\n--------------------------\nMars voor onze pensioenen in gemeenschappelijk vakbondsfront ACV Brussel - ABVV Brussel en hun organisaties.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 13u30 aan de Pensioentoren (Zuidstation) Marche pour nos pensions!\n\nNous REFUSONS la pensions à points!\n\nNous DEFENDONS:\n• la pensions à 65 ans et des emplois pour les jeunes\n• une pension de 1500€ minimum\n• l'égalité hommes-femmes pour les pensions\n• une sécurtié sociale forte pour financer nos pensions\n\nMardi 19 décembre à 10h30. Rassemblement boulevard roi Albert II n°5, 1210 Bruxelles\n--------------------------\nMars voor onze pensioenen.\n\nWe WEIGEREN het pensioen met punten!\n\nWe VERDEDIGEN:\n• het pensioen op 65-jarige leeftijd en jobs voor jongeren\n• minimum 1500€ bruto pensioen\n• Gelijke rechten op pensioen voor mannen en vrouwen\n• Sterke sociale zekerheid om onze pensioenen te financieren \n\nDinsdag 19 decembre om 10u30. Verzamelplaats: Koning Albert II laan n°5, 1210 Brussel."
+      },
+      "external_ids": {
+        "FACEBOOK": [
+          "147205975920945"
+        ]
+      },
+      "date_start": "2017-12-19T09:30:00.000Z",
+      "date_end": "2017-12-19T13:30:00.000Z"
+    },
+    {
+      "id": "4512988291661824",
+      "place": {
+      "externalIds": {
+        "AGENDA_BRUSSELS": [
+          "227628"
+        ]
+      },
+      "id": "6421399228907520",
+      "location": {
+        "lat": 50.81120605
+      },
+      "name_fr": "GC PIANOFABRIEK",
+      "name_nl": "GC PIANOFABRIEK"
+      },
+      "organizer": {
+      "externalIds": {
+        "AGENDA_BRUSSELS": [
+          "227628"
+        ]
+      },
+      "id": "6421399228907520",
+      "location": {
+        "lat": 50.81120605
+      },
+      "name_fr": "GC PIANOFABRIEK",
+      "name_nl": "GC PIANOFABRIEK"
+      },
+      "prices": [
+      {
+        "value": 98.0,
+        "fr": "Normal",
+        "nl": "Normaal"
+      }
+      ],
+      "media": [
+      {
+        "uuid": "1607dd4c-bf00-4859-a715-6bc224d2f2f0",
+        "type": "SRC",
+        "link": "http://lh3.googleusercontent.com/7Njcrrgjq3EYASxgwPRreWHi8hMuy93O1ClP5NdMgpf_dxTRKQOkih-vSLEiERiFOcp1R0ImttE1ZtEJowVQydLlUaU",
+        "active": true,
+        "main": false
+      }
+      ],
+      "nl": {
+        "name": "Tango beginners",
+        "performers": "Sergio & Gisela Molini",
+        "website": "http://www.giselaysergio.com/",
+        "emails": [
+          "uniontango@yucom.be"
+        ],
+        "short_description": "De Argentijnse tango is een originele en unieke dans waarbij man en vrouw elkaar ontmoeten zoals ze zijn, zonder verwachtingen of taboes.",
+        "long_description": "NL//De Argentijnse tango is een originele en unieke dans waarbij man en vrouw elkaar ontmoeten zoals ze zijn, zonder verwachtingen of taboes.FR//Le tango argentin est une danse originale et unique, où l’homme et la femme se rencontrent tels qu’ils sont, sans attentes ni tabous."
+      },
+      "fr": {
+        "name": "Tango beginners",
+        "website": "https://agenda.brussels/fr/detail/id/422167.html"
+      },
+      "week_schema": {
+        "wednesday": [
+          {
+            "start": "21:00",
+            "end": "22:00"
+          }
+        ]
+      },
+      "external_ids": {
+        "AGENDA_BRUSSELS": [
+          "422167"
+        ]
+      },
+      "date_start": "2017-09-13T00:00:00.000Z",
+      "date_end": "2018-06-27T00:00:00.000Z"
+    }
+  ]
+}
