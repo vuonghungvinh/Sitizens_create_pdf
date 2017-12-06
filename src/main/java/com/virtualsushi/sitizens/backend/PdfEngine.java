@@ -24,6 +24,8 @@ import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.element.Text;
+import com.itextpdf.layout.property.Leading;
+import com.itextpdf.layout.property.Property;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.VerticalAlignment;
 import com.itextpdf.layout.renderer.CanvasRenderer;
@@ -188,15 +190,14 @@ public class PdfEngine {
     	float mediumFontSize = 26;
         float smallFontSize = 18;
         canvas
-        .setFillColor(Color.GREEN)
+        .setFillColor(Color.BLACK)
         .rectangle(rect)
         .fillStroke();
-        
         float w_second_cell = width * 0.2f;
         float font_dayofmonth = (float) (w_second_cell / 0.7 / dayofmonth.length());
         Text dayofweek_t = new Text(dayofweek).setFont(font).setFontColor(Color.WHITE).setFontSize(font_dow);
-        Paragraph p = new Paragraph().add(dayofweek_t).setTextAlignment(TextAlignment.CENTER)
-        		.setRotationAngle(Math.PI/2);
+        Paragraph p = new Paragraph().add(dayofweek_t).setRotationAngle(Math.PI/2)
+        		.setTextAlignment(TextAlignment.LEFT).setVerticalAlignment(VerticalAlignment.MIDDLE);
         Table table = new Table(new float[] {font_dow, font_dayofmonth * 1.4f, width - font_dow - (font_dayofmonth * 1.4f)});
 //        table.setBorder(Border.NO_BORDER);
         table.setWidthPercent(100);
@@ -205,6 +206,7 @@ public class PdfEngine {
         cell.setHeight(height * 0.15f);
 //        cell.setBorder(Border.NO_BORDER);
         cell.setVerticalAlignment(VerticalAlignment.BOTTOM);
+        cell.setPaddingLeft(12f);
         cell.add(p);
         table.addCell(cell);
         //dayofmonth and moth
@@ -223,12 +225,13 @@ public class PdfEngine {
 //        c.setBorder(Border.NO_BORDER);
         c.setHeightPercent(55);
         Color dom_color = new DeviceRgb(204, 92, 90);
-        Text t = new Text(dayofmonth).setFont(font).setFontColor(dom_color).setFontSize(25f);
-        Paragraph pg = new Paragraph().add(t).setTextAlignment(TextAlignment.CENTER);
+//        Text t = new Text(dayofmonth).setFont(font).setFontColor(dom_color).setFontSize(25f);
+        Paragraph pg = new Paragraph().add(dayofmonth).setFontSize(font_dayofmonth * 0.7f).setFont(font).setFixedLeading(font_dayofmonth * 0.7f)
+        		.setTextAlignment(TextAlignment.CENTER).setFontColor(dom_color);
         pg.setBorder(Border.NO_BORDER);
-        pg.setFixedLeading(50f);
         pg.setPadding(0);
         pg.setMargin(0);
+//        pg.setMultipliedLeading(Leading.FIXED);
         c.setMargin(0);
         c.setPadding(0);
         c.setVerticalAlignment(VerticalAlignment.BOTTOM);
@@ -237,14 +240,15 @@ public class PdfEngine {
         tb2.addCell(c);
         
         c = new Cell();
-//        c.setBorder(Border.NO_BORDER);
+        c.setBorder(Border.NO_BORDER);
 //        c.setWidthPercent(100);
 //        c.setHeight((height * 0.15f)/3);
         c.setHeightPercent(29);
-        t = new Text(month).setFont(font).setFontColor(dom_color).setFontSize(font_month - 2f);
-        pg = new Paragraph().add(t).setTextAlignment(TextAlignment.CENTER);
-        c.setVerticalAlignment(VerticalAlignment.BOTTOM);
-        c.add(pg);
+//        t = new Text(month).setFont(font).setFontColor(dom_color).setFontSize(font_month - 2f);
+        pg = new Paragraph().add(month).setTextAlignment(TextAlignment.CENTER).setFontColor(dom_color).setFont(font)
+        		.setFontSize(font_month - 2f);
+        c.setVerticalAlignment(VerticalAlignment.TOP);
+        c.setFontSize(font_dayofmonth).add(pg);
 //        c.add("222");
         tb2.addCell(c);
         tb2.setPadding(0);
@@ -259,7 +263,6 @@ public class PdfEngine {
         table.addCell(cell);
         table.addCell(new Cell().add(new Paragraph("sdfsdf")));
         cv.add(table);
-        cv.close();
     }
     
     @SuppressWarnings("resource")
@@ -564,7 +567,7 @@ public class PdfEngine {
 			e.printStackTrace();
 		}
     	PrintRequest pq = new PrintRequest((long) 1, PrintRequest.PrintType.FLYER, PrintRequest.Template.TWO, 
-    			PrintRequest.Language.NL, events.get(0), "Cardo-Bold.ttf");
+    			PrintRequest.Language.NL, events.get(0), "NEON.TTF");
     	pe.createPdf(pq);
     	System.out.println("Done!");
     }
