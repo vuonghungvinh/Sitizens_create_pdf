@@ -3,6 +3,9 @@ package com.virtualsushi.sitizens.backend;
 import com.google.common.io.BaseEncoding;
 import com.google.common.io.Files;
 import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.font.FontProgram;
+import com.itextpdf.io.font.FontProgramFactory;
+import com.itextpdf.io.font.PdfEncodings;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.color.Color;
@@ -19,6 +22,7 @@ import com.itextpdf.kernel.pdf.canvas.PdfCanvasConstants;
 import com.itextpdf.kernel.pdf.extgstate.PdfExtGState;
 import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.Style;
 import com.itextpdf.layout.border.Border;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
@@ -29,6 +33,8 @@ import com.itextpdf.layout.property.Property;
 import com.itextpdf.layout.property.TextAlignment;
 import com.itextpdf.layout.property.VerticalAlignment;
 import com.itextpdf.layout.renderer.CanvasRenderer;
+import com.itextpdf.layout.renderer.IRenderer;
+import com.itextpdf.signatures.PdfSignatureAppearance.RenderingMode;
 import com.virtualsushi.sitizens.model.Event;
 import com.virtualsushi.sitizens.model.EventDescription;
 import com.virtualsushi.sitizens.model.Media;
@@ -167,10 +173,6 @@ public class PdfEngine {
     private ByteArrayOutputStream getPosterThree(Event event, Language language, PageSize ps, String font) throws IOException {
         return getFlyerTwo(event, language, ps, font);
     }
-
-//    private String getStartHour(Event event, Locale locale, Language language) {
-//        return String.format("%s%s%s%s", event.getDateStart().hourOfDay().getAsText(locale), language.equals(Language.NL) ? "u" : "h", minutes, "  ");
-//    }
     
     private String fontPath(String font) {
     	return String.format("%s/%s", "src/main/resources/fonts", font);
@@ -179,7 +181,8 @@ public class PdfEngine {
     private void drawInfo(PdfDocument pdf, PdfCanvas canvas, float width, float height, String dayofweek, String dayofmonth,
     		String month, String short_desscription, String font_s) throws IOException {
     	font_s = fontPath(font_s);
-    	PdfFont font = PdfFontFactory.createFont(font_s);
+    	FontProgram fontProgram = FontProgramFactory.createFont(font_s);
+    	PdfFont font = PdfFontFactory.createFont(fontProgram, PdfEncodings.WINANSI, true);
     	Rectangle rect = new Rectangle(0, height * 0.23f, (float)width, (float)(height * 0.15));
     	float h = height * 0.15f;
     	float font_dow = (float) (h / 0.75) / dayofweek.length();
@@ -189,24 +192,25 @@ public class PdfEngine {
     	cv.setBackgroundColor(Color.BLACK);
     	float mediumFontSize = 26;
         float smallFontSize = 18;
-        canvas
-        .setFillColor(Color.BLACK)
-        .rectangle(rect)
-        .fillStroke();
+        canvas.setFillColor(Color.BLACK).rectangle(rect).fillStroke();
         float w_second_cell = width * 0.2f;
-        float font_dayofmonth = (float) (w_second_cell / 0.7 / dayofmonth.length());
+        float font_dayofmonth = 10f;
+        while (font.getWidth(dayofmonth, font_dayofmonth + 5f) * dayofmonth.length() < w_second_cell) {
+        	font_dayofmonth += 1f;
+        }
         Text dayofweek_t = new Text(dayofweek).setFont(font).setFontColor(Color.WHITE).setFontSize(font_dow);
         Paragraph p = new Paragraph().add(dayofweek_t).setRotationAngle(Math.PI/2)
         		.setTextAlignment(TextAlignment.LEFT).setVerticalAlignment(VerticalAlignment.MIDDLE);
-        Table table = new Table(new float[] {font_dow, font_dayofmonth * 1.4f, width - font_dow - (font_dayofmonth * 1.4f)});
-//        table.setBorder(Border.NO_BORDER);
+        Table table = new Table(new float[] {font_dow, w_second_cell, width - font_dow - w_second_cell});
+        table.setBorder(Border.NO_BORDER);
         table.setWidthPercent(100);
         table.setHeight(height * 0.15f);
         Cell cell = new Cell();
         cell.setHeight(height * 0.15f);
-//        cell.setBorder(Border.NO_BORDER);
+        cell.setBorder(Border.NO_BORDER);
         cell.setVerticalAlignment(VerticalAlignment.BOTTOM);
         cell.setPaddingLeft(12f);
+        cell.setPaddingBottom(font_dayofmonth*1.5f*0.1f);
         cell.add(p);
         table.addCell(cell);
         //dayofmonth and moth
@@ -218,59 +222,72 @@ public class PdfEngine {
         tb2.setHeight(height * 0.15f);
         tb2.setMargin(0);
         tb2.setPadding(0);
-//        tb2.setHeightPercent(100);
         Cell c = new Cell();
-//        c.setWidthPercent(100);
-//        c.setHeight((2 * height * 0.15f)/3);
-//        c.setBorder(Border.NO_BORDER);
-        c.setHeightPercent(55);
+        c.setHeight(w_second_cell-font_month * 1.5f);
         Color dom_color = new DeviceRgb(204, 92, 90);
-//        Text t = new Text(dayofmonth).setFont(font).setFontColor(dom_color).setFontSize(25f);
-        Paragraph pg = new Paragraph().add(dayofmonth).setFontSize(font_dayofmonth * 0.7f).setFont(font).setFixedLeading(font_dayofmonth * 0.7f)
+        Text t = new Text(dayofmonth).setFont(font).setFontColor(dom_color).setFontSize(font_dayofmonth);
+        t.setWordSpacing(0f);
+        Paragraph pg = new Paragraph().setFontSize(font_dayofmonth).setFont(font)
         		.setTextAlignment(TextAlignment.CENTER).setFontColor(dom_color);
         pg.setBorder(Border.NO_BORDER);
         pg.setPadding(0);
         pg.setMargin(0);
-//        pg.setMultipliedLeading(Leading.FIXED);
+        pg.setFixedLeading(0f);
+        pg.setMultipliedLeading(0f);
+        pg.add(t);
         c.setMargin(0);
         c.setPadding(0);
         c.setVerticalAlignment(VerticalAlignment.BOTTOM);
         c.add(pg);
-//        c.add("111");
         tb2.addCell(c);
         
         c = new Cell();
         c.setBorder(Border.NO_BORDER);
-//        c.setWidthPercent(100);
-//        c.setHeight((height * 0.15f)/3);
-        c.setHeightPercent(29);
+        c.setHeight(font_month*1.5f);
 //        t = new Text(month).setFont(font).setFontColor(dom_color).setFontSize(font_month - 2f);
         pg = new Paragraph().add(month).setTextAlignment(TextAlignment.CENTER).setFontColor(dom_color).setFont(font)
-        		.setFontSize(font_month - 2f);
+        		.setFontSize(font_month);
         c.setVerticalAlignment(VerticalAlignment.TOP);
         c.setFontSize(font_dayofmonth).add(pg);
-//        c.add("222");
         tb2.addCell(c);
         tb2.setPadding(0);
         
         cell = new Cell();
         cell.setBorder(Border.NO_BORDER);
-//        cell.setWidth(font_dayofmonth * 1.1f);
-//        cell.setHeight(height * 0.15f);
         cell.setVerticalAlignment(VerticalAlignment.BOTTOM);
         cell.setPadding(0);
         cell.add(tb2);
         table.addCell(cell);
-        table.addCell(new Cell().add(new Paragraph("sdfsdf")));
+        float w = width - font_dow - w_second_cell;
+        float font_des = 14f;
+        t = new Text(short_desscription).setFont(font).setFontColor(Color.WHITE).setFontSize(font_des);
+        pg = new Paragraph().setFontSize(font_des).setFont(font)
+        		.setTextAlignment(TextAlignment.CENTER).setFontColor(Color.WHITE).add(t);
+        pg.setKeepTogether(true);
+        pg.setHeightPercent(100);
+        cell = new Cell();
+        cell.setVerticalAlignment(VerticalAlignment.MIDDLE);
+        cell.setPadding(0);
+        cell.add(pg);
+        table.addCell(cell);
         cv.add(table);
+    }
+    
+    private void drawTime(PdfDocument pdf, PdfCanvas canvas, String time, ) {
+    	
     }
     
     @SuppressWarnings("resource")
 	private void drawTitle(PdfDocument pdf, String title, PdfCanvas canvas, float width, float height, String font_s) throws IOException {
         font_s = fontPath(font_s);
         title = title.toUpperCase();
-        PdfFont font = PdfFontFactory.createFont(font_s);
-    	float fontSize = (float) (width / 0.65) / title.length();
+        FontProgram fontProgram = FontProgramFactory.createFont(font_s);
+    	PdfFont font = PdfFontFactory.createFont(fontProgram, PdfEncodings.WINANSI, true);
+//    	float fontSize = (float) (width / 0.65) / title.length();
+    	float fontSize = 10f;
+        while ((font.getWidth(title, fontSize) + width * 0.1f) < width) {
+        	fontSize += 1f;
+        }
         float topStart = height/100;
         
         float paragraphWidth = width;
@@ -285,75 +302,6 @@ public class PdfEngine {
             .setFont(font)
             .setFontSize(fontSize)
             .add(p.setFixedPosition(0, height * 0.95f, width)).close();
-    }
-
-    private void drawDescription(PdfDocument pdf, String description, PdfCanvas canvas, float width, float height, String font_s) throws IOException {
-    	font_s = fontPath(font_s);
-    	PdfFont font = PdfFontFactory.createFont(font_s);
-        description = shorten(description, 300);
-        float fontSize = 26;
-        float paragraphWidth = (float) (width * 0.8);
-        int rows = (int) (description.length() * fontSize * 0.6 / paragraphWidth) + 1;
-        float paragraphHeight = rows * fontSize;
-        float leftStart = 0 - paragraphWidth / 2;
-        float topStart = 0 - height / 6 - 40 - paragraphHeight;
-        Rectangle rect = new Rectangle(leftStart, topStart, paragraphWidth, paragraphHeight);
-        Paragraph p = new Paragraph(description).setFixedLeading(fontSize).setTextAlignment(TextAlignment.CENTER);
-        Color greyColor = new DeviceRgb(37, 37, 37);
-        new Canvas(canvas, pdf, rect)
-            .setFont(font)
-            .setFontSize(fontSize)
-            .setFontColor(greyColor)
-            .add(p.setFixedPosition(leftStart, topStart, paragraphWidth)).close();
-    }
-
-    private void drawDate(PdfDocument pdf, String dayOfWeek, String dayOfMonth, String month, String hour, PdfCanvas canvas, float width, float height, String font_s) throws IOException {
-        font_s = fontPath(font_s);
-        PdfFont font = PdfFontFactory.createFont(font_s);
-    	float bigFontSize = 80;
-        float mediumFontSize = 40;
-        float smallFontSize = 28;
-        int bottomMargin = 20;
-        float paragraphWidth = width / 5;
-        float leftX = width / 2 - paragraphWidth - 30;
-        float calenderHeight = 2 * smallFontSize + bigFontSize + mediumFontSize + bottomMargin;
-        Color greyColor = new DeviceRgb(37, 37, 37);
-        Color bluishColor = new DeviceRgb(54, 120, 160);
-        Rectangle rect = new Rectangle(leftX - 10, 0, paragraphWidth + 10, calenderHeight + 10);
-        Paragraph p = new Paragraph(dayOfWeek).setFixedLeading(smallFontSize).setTextAlignment(TextAlignment.CENTER);
-        Paragraph p2 = new Paragraph(dayOfMonth).setFixedLeading(bigFontSize).setTextAlignment(TextAlignment.CENTER);
-        Paragraph p3 = new Paragraph(month).setFixedLeading(smallFontSize).setTextAlignment(TextAlignment.CENTER);
-        Paragraph p4 = new Paragraph(hour).setFixedLeading(mediumFontSize).setTextAlignment(TextAlignment.CENTER);
-        canvas
-            .setStrokeColor(Color.RED)
-            .setFillColor(Color.WHITE)
-            .setLineWidth(0.5f)
-            .rectangle(rect)
-            .fillStroke();
-
-        new Canvas(canvas, pdf, rect)
-            .setFont(font)
-            .setFontSize(smallFontSize)
-            .setFontColor(greyColor)
-            .add(p.setFixedPosition(leftX, mediumFontSize + smallFontSize + bigFontSize + bottomMargin, paragraphWidth)).close();
-
-        new Canvas(canvas, pdf, rect)
-            .setFont(font)
-            .setFontSize(bigFontSize)
-            .setFontColor(bluishColor)
-            .add(p2.setFixedPosition(leftX, mediumFontSize + smallFontSize + bottomMargin, paragraphWidth)).close();
-
-        new Canvas(canvas, pdf, rect)
-            .setFont(font)
-            .setFontSize(smallFontSize)
-            .setFontColor(greyColor)
-            .add(p3.setFixedPosition(leftX, mediumFontSize + bottomMargin, paragraphWidth)).close();
-
-        new Canvas(canvas, pdf, rect)
-            .setFont(font)
-            .setFontSize(mediumFontSize)
-            .setFontColor(bluishColor)
-            .add(p4.setFixedPosition(leftX, 10, paragraphWidth)).close();
     }
 
     private String getUrlImageLib(String name) {
@@ -416,45 +364,6 @@ public class PdfEngine {
         canvas.restoreState();
         canvas.addImage(imageData, (width-imageWidth)/2, height * 0.45f, imageWidth, true);
     }
-
-
-    private static void drawAxes(PdfCanvas canvas, PageSize ps) {
-        //Draw X axis
-        canvas.moveTo(-(ps.getWidth() / 2 - 15), 0)
-            .lineTo(ps.getWidth() / 2 - 15, 0)
-            .stroke();
-
-        //Draw X axis arrow
-        canvas.setLineJoinStyle(PdfCanvasConstants.LineJoinStyle.ROUND)
-            .moveTo(ps.getWidth() / 2 - 25, -10)
-            .lineTo(ps.getWidth() / 2 - 15, 0)
-            .lineTo(ps.getWidth() / 2 - 25, 10).stroke()
-            .setLineJoinStyle(PdfCanvasConstants.LineJoinStyle.MITER);
-
-        //Draw Y axis
-        canvas.moveTo(0, -(ps.getHeight() / 2 - 15))
-            .lineTo(0, ps.getHeight() / 2 - 15)
-            .stroke();
-
-        //Draw Y axis arrow
-        canvas.saveState()
-            .setLineJoinStyle(PdfCanvasConstants.LineJoinStyle.ROUND)
-            .moveTo(-10, ps.getHeight() / 2 - 25)
-            .lineTo(0, ps.getHeight() / 2 - 15)
-            .lineTo(10, ps.getHeight() / 2 - 25).stroke()
-            .restoreState();
-
-        //Draw X serif
-        for (int i = -((int) ps.getWidth() / 2 - 61); i < ((int) ps.getWidth() / 2 - 60); i += 40) {
-            canvas.moveTo(i, 5).lineTo(i, -5);
-        }
-        //Draw Y serif
-        for (int j = -((int) ps.getHeight() / 2 - 57); j < ((int) ps.getHeight() / 2 - 56); j += 40) {
-            canvas.moveTo(5, j).lineTo(-5, j);
-        }
-        canvas.stroke();
-    }
-
 
     public String createTestPdf() throws IOException {
         //String html = getPosterContent(member);
@@ -567,7 +476,7 @@ public class PdfEngine {
 			e.printStackTrace();
 		}
     	PrintRequest pq = new PrintRequest((long) 1, PrintRequest.PrintType.FLYER, PrintRequest.Template.TWO, 
-    			PrintRequest.Language.NL, events.get(0), "NEON.TTF");
+    			PrintRequest.Language.FR, events.get(0), "mexcellent_rg.ttf");
     	pe.createPdf(pq);
     	System.out.println("Done!");
     }
