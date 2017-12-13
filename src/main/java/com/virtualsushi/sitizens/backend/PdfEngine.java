@@ -9,10 +9,12 @@ import com.itextpdf.io.font.PdfEncodings;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.color.Color;
+import com.itextpdf.kernel.color.Color;
 import com.itextpdf.kernel.color.ColorConstants;
 import com.itextpdf.kernel.color.DeviceRgb;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.geom.Line;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -26,6 +28,8 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.Style;
 import com.itextpdf.layout.border.Border;
 import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.LineSeparator;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.element.Text;
@@ -47,8 +51,6 @@ import com.virtualsushi.sitizens.model.PrintRequest;
 import com.virtualsushi.sitizens.model.PrintRequest.Language;
 import com.virtualsushi.sitizens.model.Timing;
 import com.virtualsushi.sitizens.model.WeekSchema;
-
-import javafx.scene.paint.ColorBuilder;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
@@ -124,10 +126,6 @@ public class PdfEngine {
         }
         return pdfContent;
     }
-
-    private ByteArrayOutputStream getFlyerOne(Event event, Language language, PageSize ps, String font) throws IOException {
-        return getFlyerTwo(event, language, ps, font);
-    }
     
     private String createPathFile(String name, String type) {
     	DateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
@@ -135,20 +133,117 @@ public class PdfEngine {
     	String basePath = "src/main/resources/pdf_files";
     	return String.format("%s/%s/%s_%s.pdf", basePath, type, dateFormat.format(date), name.replaceAll(" ", "_"));
     }
-
-    private ByteArrayOutputStream getFlyerTwo(Event event, Language language, PageSize ps, String font) throws IOException {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        EventDescription eventDescription = (language == Language.FR) ? event.getFr() : event.getNl();
-//        PdfWriter writer = new PdfWriter(baos);
+    
+    private ByteArrayOutputStream getFlyerOne(Event event, Language language, PageSize ps, String font) throws IOException {
+    	ByteArrayOutputStream bos = new ByteArrayOutputStream();
         System.out.println("creating...");
-        String filepath = createPathFile(eventDescription.getName(), "Flyer");
+        EventDescription eventDescription = (language == Language.FR) ? event.getFr(): event.getNl();
+        String type = "Flyer";
+        if (ps == PageSize.A2) {
+        	type = "Poster";
+        }
+        String filepath = createPathFile(eventDescription.getName(), type);
         File f = new File(filepath);
         f.getParentFile().mkdirs();
         PdfWriter writer = new PdfWriter(filepath);
         PdfDocument pdf = new PdfDocument(writer);
         PdfPage page = pdf.addNewPage(ps);
         PdfCanvas canvas = new PdfCanvas(page);
-        addBackgroundImage(canvas, ps.getWidth(), ps.getHeight(), "halftone-background.jpg");
+        String path = "background.jpg";
+        if (event.getMedias().size() > 0) {
+        	path = event.getMedias().get(0).getUrl();
+        }
+        addBackgroundImage(canvas, pdf, ps.getWidth(), ps.getHeight(), 0.6f, path);
+        String name = (language == Language.FR)? event.getFr().getName(): event.getNl().getName();
+        String dayOfMonth = event.getDateStart().dayOfMonth().getAsText();
+        String month = event.getDateStart().monthOfYear().getAsText();
+        String time = dayOfMonth + "." + month;
+        drawInfoFlyerone(canvas, pdf, ps, name, time, font);
+        pdf.close();
+        return bos;
+    }
+    
+    private void drawInfoFlyerone(PdfCanvas canvas, PdfDocument pdf, PageSize ps, String name, String start_date, String font_s) throws IOException {
+    	float w = ps.getWidth();
+    	float h = ps.getHeight();
+    	String title = "matthias heiderich";
+    	String info = "White Noise";
+    	String time = "VERNISSAGE " + start_date;
+    	title = title.toUpperCase();
+    	font_s = fontPath(font_s);
+    	float space = 4f;
+    	if (ps == PageSize.A2) {
+    		space = 8f;
+    	}
+    	FontProgram fontprogram = FontProgramFactory.createFont(font_s);
+    	PdfFont font = PdfFontFactory.createFont(fontprogram, PdfEncodings.WINANSI, true);
+    	Rectangle rect = new Rectangle(w * 0.2f, h * 0.1f, w * 0.6f, h * 0.12f);
+    	canvas.setStrokeColor(Color.WHITE);
+    	canvas.setLineWidth(4f)
+	    	.moveTo(w * 0.2f, h * 0.22f).lineTo(w * 0.2f + w * 0.6f, h * 0.22f)
+	    	.moveTo(w * 0.2f, h * 0.1f).lineTo(w * 0.2f + w * 0.6f, h * 0.1f).closePathStroke();
+    	canvas.setStrokeColor(Color.WHITE).setLineWidth(1f)
+    		.moveTo(w * 0.2f, h * 0.22f - space).lineTo(w * 0.2f + w * 0.6f, h * 0.22f - space)
+    		.moveTo(w * 0.2f, h * 0.1f + space).lineTo(w * 0.2f + w * 0.6f, h * 0.1f + space).closePathStroke();
+    	canvas.rectangle(rect);
+    	float fontsize = 6f;
+    	while ((font.getWidth(name, fontsize) + 2f) < w * 0.6f) {
+    		fontsize += 0.1f;
+    	}
+    	System.out.println(fontsize);
+    	if (fontsize > 60f) {
+    		fontsize = 60f;
+    	}
+    	Text title_t = new Text(name).setFontColor(Color.WHITE).setFontSize(fontsize).setTextAlignment(TextAlignment.CENTER);
+    	float fontsize_info = 6f;
+    	while ((font.getWidth(info, fontsize_info)) < w * 0.6f * 0.6f) {
+    		fontsize_info += 0.1f;
+    	}
+    	if (fontsize_info > fontsize) {
+    		fontsize_info = fontsize * 0.7f;
+    	}
+    	Text info_t = new Text(info).setFontColor(Color.WHITE).setFontSize(fontsize_info);
+    	Paragraph pg = new Paragraph().setFontColor(Color.WHITE).setTextAlignment(TextAlignment.CENTER)
+    			.setVerticalAlignment(VerticalAlignment.MIDDLE);
+    	pg.add(title_t);
+    	pg.add("\n");
+    	pg.add(info_t);
+    	pg.setHeight(h * 0.12f);
+    	Canvas cv = new Canvas(canvas, pdf, rect);
+    	cv.add(pg);
+    	cv.close();
+    	rect = new Rectangle(w * 0.2f, h * 0.05f, w * 0.6f, h * 0.04f);
+    	canvas.rectangle(rect);
+    	cv = new Canvas(canvas, pdf, rect);
+    	fontsize = 6f;
+    	while ((font.getWidth(time, fontsize) + 40f) < w * 0.6f * 0.8f) {
+    		fontsize += 0.1f;
+    	}
+    	if (fontsize > 40f) {
+    		fontsize = 40f;
+    	}
+    	pg = new Paragraph().add(time).setFontColor(Color.WHITE).setFontSize(fontsize).setTextAlignment(TextAlignment.CENTER);
+    	cv.add(pg);
+    	cv.close();
+    }
+
+    private ByteArrayOutputStream getFlyerTwo(Event event, Language language, PageSize ps, String font) throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        EventDescription eventDescription = (language == Language.FR) ? event.getFr() : event.getNl();
+//        PdfWriter writer = new PdfWriter(baos);
+        System.out.println("creating...");
+        String type = "Flyer";
+        if (ps == PageSize.A2) {
+        	type = "Poster";
+        }
+        String filepath = createPathFile(eventDescription.getName(), type);
+        File f = new File(filepath);
+        f.getParentFile().mkdirs();
+        PdfWriter writer = new PdfWriter(filepath);
+        PdfDocument pdf = new PdfDocument(writer);
+        PdfPage page = pdf.addNewPage(ps);
+        PdfCanvas canvas = new PdfCanvas(page);
+        addBackgroundImage(canvas, pdf, ps.getWidth(), ps.getHeight(), 1f, "halftone-background.jpg");
         if (eventDescription != null)
             drawTitle(pdf, eventDescription.getName(), canvas, ps.getWidth(), ps.getHeight(), font);
         addImage(event.getMedias(), canvas, ps.getWidth(), ps.getHeight());
@@ -188,7 +283,7 @@ public class PdfEngine {
         	time = timing.getStart().toString();
         }
         String price = "none";
-        String type = "none";
+        type = "none";
         List<Price> prices = event.getPrices();
         if (prices != null && prices.size() > 0) {
         	price = prices.get(0).getValue().toString();
@@ -233,7 +328,7 @@ public class PdfEngine {
     }
 
     private ByteArrayOutputStream getPosterOne(Event event, Language language, PageSize ps, String font) throws IOException {
-        return getFlyerTwo(event, language, ps, font);
+        return getFlyerOne(event, language, ps, font);
     }
 
     private ByteArrayOutputStream getPosterTwo(Event event, Language language, PageSize ps, String font) throws IOException {
@@ -446,8 +541,14 @@ public class PdfEngine {
     	return String.format("src/main/resources/pic_lib/%s", name);
     }
     
-    private void addBackgroundImage(PdfCanvas canvas, float w, float h, String src) throws MalformedURLException {
-    	ImageData imgbg = ImageDataFactory.create(getUrlImageLib(src));
+	private void addBackgroundImage(PdfCanvas canvas, PdfDocument pdf, float w, float h, float opacity, String src) throws MalformedURLException {
+    	ImageData imgbg;
+    	if (src.indexOf("http") >= 0) {
+    		URL url = new URL(src);
+    		imgbg = ImageDataFactory.create(url);
+    	} else {
+    		imgbg = ImageDataFactory.create(getUrlImageLib(src));
+    	}
     	float pageRatio = h / w;
         float imageRatio = imgbg.getHeight() / imgbg.getWidth();
         float scaleFactor = 1.20f;
@@ -458,7 +559,17 @@ public class PdfEngine {
         float x = (imgbg.getWidth() * scaleFactor) / 2;
 	    float y = (imgbg.getHeight() * scaleFactor) / 2;
 	    float totalWidth = imgbg.getWidth() * scaleFactor;
-	    canvas.addImage(imgbg, 0, 0, totalWidth, true);
+	    Image img = new Image(imgbg);
+	    img.scaleToFit(w, h).setFixedPosition(0, 0);
+	    img.setOpacity(opacity);
+//	    canvas.addImage(imgbg, 0, 0, totalWidth, true);
+	    Rectangle rect = new Rectangle(0, 0, w, h);
+	    canvas.rectangle(rect).fillStroke();
+	    Canvas cv = new Canvas(canvas, pdf, rect);
+	    img.setHeight(h);
+	    img.setWidth(w);
+	    cv.add(img);
+	    cv.close();
     }
     
     private void addImage(List<Media> media, PdfCanvas canvas, float width, float height) throws MalformedURLException {
@@ -650,8 +761,8 @@ public class PdfEngine {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	PrintRequest pq = new PrintRequest((long) 1, PrintRequest.PrintType.FLYER, PrintRequest.Template.TWO, 
-    			PrintRequest.Language.FR, events.get(2), "Vegan_Abattoir.ttf");
+    	PrintRequest pq = new PrintRequest((long) 1, PrintRequest.PrintType.POSTER, PrintRequest.Template.ONE, 
+    			PrintRequest.Language.FR, events.get(0), "Vegan_Abattoir.ttf");
     	pe.createPdf(pq);
     	System.out.println("Done!");
     }
